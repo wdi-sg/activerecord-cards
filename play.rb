@@ -24,7 +24,7 @@ while playing
   answer = gets.chomp
   if answer == "no"
     puts "folding"
-    next
+    playing = false
   end
 
   #end game condition
