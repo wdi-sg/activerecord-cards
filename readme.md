@@ -21,14 +21,9 @@ some relevant commands:
 
 # further
 
+1. Store the user name in a separate `users` table.
+1. When the game ends, print all the hands that have been played this session.
 
-# further
-
-# further
-
-
-# further
-
-
-# further
-I
+### Hints:
+Look into setting up associations
+http://guides.rubyonrails.org/association_basics.html
