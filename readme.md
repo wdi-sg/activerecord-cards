@@ -1,6 +1,7 @@
 # activerecord-cards
 
 Continuing on from the ruby-oop-cards exercise: https://github.com/wdi-sg/ruby-oop-cards/
+
 A set of starter code has been provided with a working card game.
 
 1. Create a Postgres database with name `cardgame`.
