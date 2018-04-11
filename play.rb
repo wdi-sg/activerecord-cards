@@ -42,3 +42,5 @@ while playing
   end
 
 end
+find_user= User.find_by(user_name: "#{user_name}")
+pp find_user.hands
