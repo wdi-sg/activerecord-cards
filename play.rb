@@ -20,7 +20,7 @@ while playing
 
   # calls play method from game
   game.play
-  
+
   # creates a new entry in hands TABLE
   Hand.create(user_hand: "#{game.hands[0]}", house_hand: "#{game.hands[1]}", user_name: "#{user_name}")
   puts "current score is: #{game.check_game.to_s}"
@@ -39,3 +39,5 @@ while playing
   end
 
 end
+
+pp Hand.where(user_name: "#{user_name}")
