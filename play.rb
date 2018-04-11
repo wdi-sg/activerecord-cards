@@ -5,6 +5,7 @@ require "pry" # for debugging
 
 require_relative "db/connection" # require the db connection file that connects us to PSQL, prior to loading models
 require_relative "models/hand" # require the Hand class definition that we defined in the models/artist.rb file
+require_relative "models/user"
 
 require './game'
 require './cards'
@@ -15,14 +16,16 @@ game = Game.new
 
 puts "What is your name?"
 user_name = gets.chomp
+# creates a new entry in users TABLE
+current_user = User.create(user_name: "#{user_name}")
 
 while playing
 
   # calls play method from game
   game.play
-  
+
   # creates a new entry in hands TABLE
-  Hand.create(user_hand: "#{game.hands[0]}", house_hand: "#{game.hands[1]}", user_name: "#{user_name}")
+  Hand.create(user_hand: "#{game.hands[0]}", house_hand: "#{game.hands[1]}", user_id: "#{current_user.id}")
   puts "current score is: #{game.check_game.to_s}"
 
   #stop or contiune game
