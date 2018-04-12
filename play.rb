@@ -11,10 +11,10 @@ require './cards'
 
 playing = true
 # creates a new instance of a game from  Game class (from game.rb)
-game = Game.new
-
+puts "Enter your name: "
+user = gets.chomp
+game = Game.new(user)
 while playing
-
   # calls play method from game
   game.play
   puts "current score is: #{game.check_game.to_s}"
@@ -25,11 +25,17 @@ while playing
   if answer == "no"
     puts "folding"
     playing = false
+    hands_played = Hand.where(player: user)
+    hands_played.each do |hand|
+      puts "user: " + hand.user_hand.to_s  
+      puts "house: " + hand.house_hand.to_s
+    end
   end
 
   #end game condition
   if game.check_game < -2
     playing = false
+    puts Hand.where(player: user)
   end
 
 end
