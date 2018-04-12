@@ -10,6 +10,8 @@ class Game
     user_hand = @deck.show_card
     house_hand = @deck.show_card
 
+    round = Hand.create(user_hand: user_hand, house_hand: house_hand, user_id: User.last.id)
+
     @hands << [user_hand, house_hand]
 
     if user_hand > house_hand
