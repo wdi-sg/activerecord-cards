@@ -1,26 +1,47 @@
 class Game
+  attr_accessor :score, :turn, :currentDeck, :computerHand, :playerHand
 
   def initialize
-    @deck = Cards.new
+    @computerHand = []
+    @playerHand = []
     @score = 0
-    @hands = []
+    @turn = 0
+    @currentDeck = []
   end
 
-  def play
-    user_hand = @deck.show_card
-    house_hand = @deck.show_card
+  def drawCards
+    @turn += 1
+    puts ""
+    puts "Round #{turn}"
+    puts("shuffling deck")
+    currentDeck.shuffle!
+    puts("draw two cards from deck")
+    @computerHand.push(currentDeck[0])    
+    puts "computer has #{@computerHand[turn-1]}"
+    @playerHand.push(currentDeck[1])
+    puts "player has #{@playerHand[turn-1]}"
+  end
 
-    @hands << [user_hand, house_hand]
+  def compare(username)
+    # puts "Hello " + username + " you have #{score} points"
+    bet = 1
+    # puts "do you want to wager points[Y/N]"
+    # choice = gets.chomp
+    # if(choice == "Y")
+    #   puts "how much?"
+    #   bet = gets.chomp
+    # end
 
-    if user_hand > house_hand
-      @score += 1
-    else
-      @score -= 1
+    #if player has highest card, increment score
+    if(@playerHand[turn-1] > @computerHand[turn-1])
+      @score += bet.to_i.abs
+      puts "score added"
+    #if computer has highest card, deduct score
+    elsif(@playerHand[turn-1] < @computerHand[turn-1])
+      @score -= bet.to_i.abs
+      puts "score deducted"
     end
-  end
-
-  def check_game
-    @score
+    puts "Current score: #{score}"
   end
 
 end
