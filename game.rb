@@ -15,7 +15,7 @@ class Game
 
     @current_hand.push(user_hand)
     @current_hand.push(house_hand)
-    @hands.push(@current_hand)
+    @hands << @current_hand
 
     if user_hand > house_hand
       @score += 1
