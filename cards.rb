@@ -1,16 +1,13 @@
 class Cards
+  attr_accessor :cards
+
   def initialize
-    @cards = []
-    52.times do |number|
-      @cards << number
-    end
+    #initialize cards to be an array with 52 elements
+    @cards = (1..52).to_a
   end
 
-  def show_card
-    @cards.shuffle.first
-  end
-
-  def get_card
-    @cards.shuffle.pop
+  #remove the two cards that are picked from the deck
+  def removeCards
+    @cards.slice!(0,2)
   end
 end
