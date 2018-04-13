@@ -1,9 +1,11 @@
 class Game
-
-  def initialize
+  attr_accessor :username, :round
+  def initialize(username)
     @deck = Cards.new
     @score = 0
     @hands = []
+    @username=username
+    @round = 0
   end
 
   def play
