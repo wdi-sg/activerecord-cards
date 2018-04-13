@@ -2,15 +2,15 @@ class Cards
   def initialize
     @cards = []
     52.times do |number|
-      @cards << number
+      @cards << (number + 1)
     end
   end
 
-  def show_card
-    @cards.shuffle.first
+  def shuffle
+    @cards.shuffle
   end
 
-  def get_card
-    @cards.shuffle.pop
-  end
+  # def get_card
+  #   @cards.shuffle.pop
+  # end
 end
