@@ -7,8 +7,6 @@ class Game
     @deck = Cards.new
     @score = 0
     @hands = []
-    puts "inside game and initialize" + @name
-  
   end
 
   def play
@@ -18,7 +16,6 @@ class Game
     puts "You picked #{user_hand} and the house picked #{house_hand}"
 
     Hand.create(user_hand: user_hand, house_hand: house_hand, username: @name)
-
 
     if user_hand > house_hand
       @score += 1
