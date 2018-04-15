@@ -32,6 +32,7 @@ while playing
   if answer == "no"
     puts "folding"
     playing = false
+
   end
 
   #end game condition
