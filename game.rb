@@ -15,6 +15,7 @@ class Game
     user_hand = @deck.show_card
     house_hand = @deck.show_card
     @hands << [user_hand, house_hand]
+    puts "You picked #{user_hand} and the house picked #{house_hand}"
 
     Hand.create(user_hand: user_hand, house_hand: house_hand, username: @name)
 
