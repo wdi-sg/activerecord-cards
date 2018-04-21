@@ -5,13 +5,20 @@ require "pry" # for debugging
 
 require_relative "db/connection" # require the db connection file that connects us to PSQL, prior to loading models
 require_relative "models/hand" # require the Hand class definition that we defined in the models/artist.rb file
-
+require_relative "models/user"
 require './game'
 require './cards'
 
-playing = true
 # creates a new instance of a game from  Game class (from game.rb)
-game = Game.new
+
+puts "Enter your name:"
+username = gets.chomp
+
+game = Game.new(username)
+
+user = User.create(name: username)
+
+playing = true
 
 while playing
 
@@ -20,11 +27,12 @@ while playing
   puts "current score is: #{game.check_game.to_s}"
 
   #stop or contiune game
-  puts "do you want to play this hand?"
+  puts "do you want to play this hand? Type in no to fold. Otherwise, type any key"
   answer = gets.chomp
   if answer == "no"
     puts "folding"
     playing = false
+
   end
 
   #end game condition

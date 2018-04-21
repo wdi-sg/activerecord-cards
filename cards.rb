@@ -1,3 +1,5 @@
+
+
 class Cards
   def initialize
     @cards = []
@@ -14,3 +16,4 @@ class Cards
     @cards.shuffle.pop
   end
 end
+

@@ -1,4 +1,16 @@
 DROP TABLE IF EXISTS hands;
 
 CREATE TABLE hands(
+	id SERIAL PRIMARY KEY,
+	username VARCHAR (255),
+	user_hand INTEGER,
+	house_hand INTEGER
+	
+);
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR (255)
 );
